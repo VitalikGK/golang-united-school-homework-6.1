@@ -11,7 +11,19 @@ func TestBox_AddShape(t *testing.T) {
 	circle := &Circle{}
 	box := NewBox(1)
 
+	fmt.Println("circle ", circle)
+	fmt.Println("box ", &box.shapes)
+	fmt.Println("len ", len(box.shapes))
+
+	// _ = box.AddShape(circle)
+	// fmt.Println("box ", box)
+	// fmt.Println("len ", len(box.shapes))
+
 	actualErr := box.AddShape(circle)
+
+	fmt.Println("circle- ", circle)
+	fmt.Println("box- ", &box.shapes)
+	fmt.Println("len -", len(box.shapes))
 
 	if len(box.shapes) != 1 {
 		t.Errorf("the expected length is 1, but actual %d", len(box.shapes))
@@ -27,9 +39,20 @@ func TestBox_AddShape_ErrAddMoreThanMax(t *testing.T) {
 	rectangle := &Rectangle{}
 	box := NewBox(2)
 
+	fmt.Println("box (2)", box)
+	fmt.Println("len (2)", len(box.shapes))
+
 	_ = box.AddShape(circle)
 	_ = box.AddShape(triangle)
+
+	fmt.Println("box2 ", box.shapes[0:1])
+	fmt.Println("len2 ", len(box.shapes))
+
 	actualErr := box.AddShape(rectangle)
+
+	fmt.Println("error = ", actualErr)
+	fmt.Println("box3 ", box)
+	fmt.Println("len3 ", len(box.shapes))
 
 	if actualErr == nil {
 		t.Errorf("added more than max elements, but error has not been received")
