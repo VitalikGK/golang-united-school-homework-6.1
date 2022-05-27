@@ -1,5 +1,9 @@
 package golang_united_school_homework
 
+import (
+	"errors"
+)
+
 // box contains list of shapes and able to perform operations on them
 type box struct {
 	shapes         []Shape
@@ -9,6 +13,7 @@ type box struct {
 // NewBox creates new instance of box
 func NewBox(shapesCapacity int) *box {
 	return &box{
+		shapes:         make([]Shape, shapesCapacity, shapesCapacity),
 		shapesCapacity: shapesCapacity,
 	}
 }
@@ -17,12 +22,19 @@ func NewBox(shapesCapacity int) *box {
 // returns the error in case it goes out of the shapesCapacity range.
 func (b *box) AddShape(shape Shape) error {
 	//	panic("implement me")
-	b.shapes = append(b.shapes, shape)
-	b.shapesCapacity = len(b.shapes) + 1
-	// if err != nill{
-	// 	fmt.Printf("Error %w", err)
-	// }
-	return nil
+	// var err error = nil
+	// d := len(b.shapes)
+	// fmt.Println("d = ", d)
+	if len(b.shapes) >= b.shapesCapacity {
+		// err := errors.New("Превышен размер коробки")
+		// fmt.Println("the expected length is 1, but actual %w", err)
+		return errors.New("Превышен размер коробки")
+	} else {
+		b.shapes = append(b.shapes, shape)
+		return nil
+	}
+
+	//	return err
 }
 
 // GetByIndex allows getting shape by index
