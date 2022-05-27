@@ -40,7 +40,15 @@ func (b *box) AddShape(shape Shape) error {
 // GetByIndex allows getting shape by index
 // whether shape by index doesn't exist or index went out of the range, then it returns an error
 func (b *box) GetByIndex(i int) (Shape, error) {
-	panic("implement me")
+	//	panic("implement me")
+	if i > b.shapesCapacity {
+		// err := errors.New("Превышен размер коробки")
+		// fmt.Println("the expected length is 1, but actual %w", err)
+		return nil, errors.New("Вышли за пределы")
+	} else {
+		//b.shapes = append(b.shapes, shape)
+		return b.shapes[i-1], nil
+	}
 
 }
 
