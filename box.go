@@ -2,6 +2,7 @@ package golang_united_school_homework
 
 import (
 	"errors"
+	"fmt"
 )
 
 // box contains list of shapes and able to perform operations on them
@@ -44,9 +45,11 @@ func (b *box) GetByIndex(i int) (Shape, error) {
 	if i > b.shapesCapacity {
 		// err := errors.New("Превышен размер коробки")
 		// fmt.Println("the expected length is 1, but actual %w", err)
-		return nil, errors.New("Вышли за пределы")
+		return nil, errors.New("вышли за пределы")
 	} else {
 		//b.shapes = append(b.shapes, shape)
+		fmt.Println(" i = ", i)
+		fmt.Println(" b.shapes = ", b.shapes[i-1])
 		return b.shapes[i-1], nil
 	}
 
