@@ -1,3 +1,3 @@
-module main.go
+module golang-united-school-homework-6.1
 
 go 1.18
