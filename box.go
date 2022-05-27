@@ -16,7 +16,12 @@ func NewBox(shapesCapacity int) *box {
 // AddShape adds shape to the box
 // returns the error in case it goes out of the shapesCapacity range.
 func (b *box) AddShape(shape Shape) error {
-	panic("implement me")
+	//	panic("implement me")
+	b.shapes = append(b.shapes, shape)
+	b.shapesCapacity = len(b.shapes) + 1
+	// if err != nill{
+	// 	fmt.Printf("Error %w", err)
+	// }
 }
 
 // GetByIndex allows getting shape by index
