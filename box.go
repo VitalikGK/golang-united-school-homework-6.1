@@ -28,7 +28,7 @@ func (b *box) AddShape(shape Shape) error {
 	if len(b.shapes) >= b.shapesCapacity {
 		// err := errors.New("Превышен размер коробки")
 		// fmt.Println("the expected length is 1, but actual %w", err)
-		return errors.New("Превышен размер коробки")
+		return errors.New("превышен размер коробки")
 	} else {
 		b.shapes = append(b.shapes, shape)
 		return nil
