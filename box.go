@@ -133,10 +133,11 @@ func (b *box) RemoveAllCircles() error {
 			copy(b.shapes[i:], b.shapes[i+1:])
 			b.shapes = b.shapes[:len(b.shapes)-1]
 			c = c + 1
+			i = i - 1
 		}
 	}
 	if c == 0 {
-		err = errors.New("вышли за пределы")
+		err = errors.New("нет кругов")
 	} else {
 		err = nil
 	}
