@@ -22,6 +22,7 @@ func (b *box) AddShape(shape Shape) error {
 	// if err != nill{
 	// 	fmt.Printf("Error %w", err)
 	// }
+	return nil
 }
 
 // GetByIndex allows getting shape by index
